@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+
+	<logger name="com.sumit" level="DEBUG" />
+
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<!-- <file>${user.dir}/application/logs/application.log</file> -->
+		<file>${application.home:-.}/logs/application.log</file>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+<!-- 	<configuration debug="true"> -->
+ 		<!-- sends logs to logback-beagle --> 
+<!-- 		<consolePlugin /> -->
+<!-- 	</configuration> -->
+	<root level="debug">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>
